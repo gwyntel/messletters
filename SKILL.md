@@ -16,6 +16,8 @@ Converts ASCII text into 121 Unicode "fancy text" styles using pre-extracted cha
 
 Zero dependencies. Single Python file. Works anywhere.
 
+**Install:** `hermes skills install gwyntel/messletters`
+
 ## Module
 
 Bundled at `scripts/messletters.py` within this skill.
@@ -23,18 +25,10 @@ Bundled at `scripts/messletters.py` within this skill.
 ## Import
 
 ```python
-import sys
-sys.path.insert(0, SKILL_DIR + '/scripts')  # SKILL_DIR resolved at runtime
-from messletters import convert, search_styles, list_styles, preview_styles, reverse_lookup, CATEGORIES, STYLES
-```
-
-When using `execute_code`, add the scripts dir to sys.path:
-
-```python
 import sys, os
-skill_scripts = os.path.expanduser('~/.hermes/skills/creative/messletters/scripts')
+skill_scripts = os.path.expanduser('~/.hermes/skills/messletters/scripts')
 sys.path.insert(0, skill_scripts)
-from messletters import convert
+from messletters import convert, search_styles, list_styles, preview_styles, reverse_lookup, CATEGORIES, STYLES
 ```
 
 ## API
@@ -94,7 +88,7 @@ Runes, Gothic, Celtic, Black Panther, Etruscan
 Japanese, CJK, Yi One, Yi Two, Yi Three, Yi Four, Yi Five, Yi Six, Yi Seven, Yi Eight, Malayalam, Ge'ez Script - Ethiopian, Ge'ez Script - Amharic, Cherokee Mystique
 
 ### decorative (18)
-Messletters, Fasion, Swirly, Wiggly, Dotted, BigOne, Strange, Newspaper Cutout Standard, Newspaper Cutout Uppercase, Newspaper Cutout Mixed Case, Dwarf, Dwarf II, Phonetic, Phonetic Rounded, Phonetic Light, Lower Upper Light, Lower Upper Bold, Awesome
+Messletters, Fasion, Swirly, Wiggly, Dotted, BigOne, Strange, Newspaper Cutout Standard, Newspaper Cutout Uppercase, Newspaper Cutout Mixed Case, Dwarf, Dwarf II, Phonetic, Phonetic Rounded, Phonetic Light, Lower Upper Bold, Awesome
 
 ### leetspeak (1)
 1337
@@ -126,7 +120,7 @@ Input: `Claire`
 ### Convert with execute_code
 ```python
 import sys, os
-skill_scripts = os.path.expanduser('~/.hermes/skills/creative/messletters/scripts')
+skill_scripts = os.path.expanduser('~/.hermes/skills/messletters/scripts')
 sys.path.insert(0, skill_scripts)
 from messletters import convert
 result = convert("Hello World", "Fullwidth")
@@ -135,14 +129,6 @@ print(result)  # Ｈｅｌｌｏ Ｗｏｒｌｄ
 
 ### User asks "what styles are available?"
 Show categories and sample outputs. Group by category — don't list all 121 raw.
-
-### Multiple styles at once
-```python
-from messletters import convert
-text = "Wells"
-for style in ["Math Fraktur Bold", "Circled", "Runes", "Cute v1"]:
-    print(f"  {style}: {convert(text, style)}")
-```
 
 ## Notes
 

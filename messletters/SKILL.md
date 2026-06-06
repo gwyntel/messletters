@@ -16,7 +16,7 @@ Converts ASCII text into 121 Unicode "fancy text" styles using pre-extracted cha
 
 Zero dependencies. Single Python file. Works anywhere.
 
-**Install:** `hermes skills install gwyntel/messletters`
+**Install:** `hermes skills install gwyntel/messletters/messletters`
 
 ## Module
 
@@ -53,11 +53,6 @@ All 121 style names, alphabetically sorted.
 ### `search_styles(query: str) -> list[str]`
 Case-insensitive substring search on style names.
 
-```python
-search_styles("fraktur")
-# → ['Math Fraktur Bold', 'Math Fraktur Bold - Edit', 'Math Fraktur Normal', 'Math Fraktur Normal - Edit']
-```
-
 ### `preview_styles(text: str = "Hello World") -> list[tuple[str, str]]`
 Apply all styles to text. Returns list of `(style_name, converted_text)` tuples.
 
@@ -70,7 +65,7 @@ Dict of `category_name -> list[style_names]` for browsing by type.
 ### `STYLES`
 Raw data dict: `style_name -> (lower_cps_tuple, upper_cps_tuple, digit_cps_tuple)`.
 
-## Categories & Style Lists
+## Categories
 
 ### mathematical (17)
 Math Script Customized (Royal), Math Monospace, Math Sans-serif Bold, Math Serif Italic, Math Serif Bold, Math Sans-serif, Math Script (Royal) Bold, Math Sans-serif Italic, Math Sans-serif Bold Italic, Math Fraktur Bold - Edit, Math Fraktur Normal, Math Serif Bold Italic, Math Script (Royal), Math Fraktur Bold, Math Serif Italic Greek, Math Serif Italic v2, Math Fraktur Normal - Edit
@@ -134,7 +129,7 @@ Show categories and sample outputs. Group by category — don't list all 121 raw
 
 - Non-ASCII characters (punctuation, spaces, emoji) pass through unchanged
 - Some styles are **unicase** (upper=lower) — e.g., Japanese, Boxed Black, Carrier, Runes, Etruscan, Yi variants
-- Digits don't map in all styles — they pass through as ASCII in those cases
+- Digits don't map in all styles — they pass through as ASCII
 - Strikethrough styles use combining characters — rendering depends on the platform/font
 - `1337` is a leetspeak substitution cipher (a→4, e→3, i→1, o→0, s→5, t→7, z→2)
 - CJK/Japanese styles map Latin characters to visually similar CJK characters — not a real transliteration
